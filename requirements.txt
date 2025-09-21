@@ -1,0 +1,6 @@
+tqdm
+rich
+pandas
+python-docx
+reportlab
+python-dotenv
