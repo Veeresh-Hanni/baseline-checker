@@ -1,6 +1,10 @@
+python-dotenv
+flask
+celery[redis]
+redis
 tqdm
 rich
-pandas
-python-docx
 reportlab
-python-dotenv
+python-docx
+gunicorn
+pandas
