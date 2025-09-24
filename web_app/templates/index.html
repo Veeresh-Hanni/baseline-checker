@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Baseline Checker Web App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Baseline Compatibility Scanner</h1>
+        <p>Select your project folder to scan its files for baseline and non-baseline web features.</p>
+
+        <div id="upload-form">
+            <form id="project-form" enctype="multipart/form-data">
+                <input type="file" name="project_files[]" webkitdirectory directory multiple>
+                <input type="submit" value="Upload and Scan Project">
+            </form>
+        </div>
+
+        <div id="loading" style="display:none;">
+            <h2>Scanning your project...</h2>
+            <div class="spinner"></div>
+            <p id="status-message">Please wait, this may take a moment.</p>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

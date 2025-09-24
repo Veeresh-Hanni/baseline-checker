@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Scan Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Scan Complete</h1>
+        <p>Found {{ report.baseline_features|length + report.non_baseline_features|length }} unique features in {{
+            report.total_files_scanned }} files.</p>
+        <div class="results">
+            <div class="baseline">
+                <h2>✅ Baseline Features ({{ report.baseline_features|length }})</h2>
+                <ul>
+                    {% for feature in report.baseline_features %}
+                    <li>{{ feature }}</li>
+                    {% else %}
+                    <li>No baseline features found.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="non-baseline">
+                <h2>❌ Non-Baseline Features ({{ report.non_baseline_features|length }})</h2>
+                <ul>
+                    {% for feature in report.non_baseline_features %}
+                    <li>{{ feature }}</li>
+                    {% else %}
+                    <li>No non-baseline features found.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <a href="{{ url_for('index') }}">Scan Another Project</a>
+    </div>
+</body>
+
+</html>
