@@ -2,41 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Scan Results</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Baseline Scanner — Results</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Scan Complete</h1>
-        <p>Found {{ report.baseline_features|length + report.non_baseline_features|length }} unique features in {{
-            report.total_files_scanned }} files.</p>
-        <div class="results">
-            <div class="baseline">
-                <h2>✅ Baseline Features ({{ report.baseline_features|length }})</h2>
-                <ul>
-                    {% for feature in report.baseline_features %}
-                    <li>{{ feature }}</li>
-                    {% else %}
-                    <li>No baseline features found.</li>
-                    {% endfor %}
-                </ul>
-            </div>
+  <div class="container card">
+    <h1>Scan Complete</h1>
+    <p class="muted">Files scanned: <strong>{{ report.total_files_scanned }}</strong></p>
 
-            <div class="non-baseline">
-                <h2>❌ Non-Baseline Features ({{ report.non_baseline_features|length }})</h2>
-                <ul>
-                    {% for feature in report.non_baseline_features %}
-                    <li>{{ feature }}</li>
-                    {% else %}
-                    <li>No non-baseline features found.</li>
-                    {% endfor %}
-                </ul>
-            </div>
+    <div class="row">
+      <div>
+        <canvas id="featuresChart" width="300" height="300"></canvas>
+      </div>
+      <div class="summary">
+        <h3>Summary</h3>
+        <ul>
+          <li>Baseline features: <strong>{{ report.baseline_features|length }}</strong></li>
+          <li>Non-baseline features: <strong>{{ report.non_baseline_features|length }}</strong></li>
+        </ul>
+
+        <div class="actions">
+          <a class="btn" href="{{ url_for('download_report', task_id=task_id, format='json') }}">Download JSON</a>
+          <a class="btn" href="{{ url_for('download_report', task_id=task_id, format='csv') }}">Download CSV</a>
+          <a class="btn" href="{{ url_for('download_report', task_id=task_id, format='pdf') }}">Download PDF</a>
+          <a class="btn ghost" href="{{ url_for('index') }}">Scan Another Project</a>
         </div>
-        <a href="{{ url_for('index') }}">Scan Another Project</a>
+      </div>
     </div>
+
+    <section>
+      <h3>Baseline Features</h3>
+      <ul>
+        {% raw %}{% for feature in report.baseline_features %}{% endraw %}
+        <li>{{ feature }}</li>
+        {% raw %}{% else %}{% endraw %}
+        <li>No baseline features found.</li>
+        {% raw %}{% endfor %}{% endraw %}
+      </ul>
+
+      <h3>Non-Baseline Features</h3>
+      <ul>
+        {% raw %}{% for feature in report.non_baseline_features %}{% endraw %}
+        <li>{{ feature }}</li>
+        {% raw %}{% else %}{% endraw %}
+        <li>No non-baseline features found.</li>
+        {% raw %}{% endfor %}{% endraw %}
+      </ul>
+    </section>
+
+  </div>
+
+  <script>
+    const baselineCount = {{ report.baseline_features| length }};
+    const nonBaselineCount = {{ report.non_baseline_features| length }};
+    const ctx = document.getElementById('featuresChart');
+    new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Baseline', 'Non-Baseline'],
+        datasets: [{
+          data: [baselineCount, nonBaselineCount]
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+  </script>
 </body>
 
 </html>

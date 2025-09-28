@@ -33,69 +33,91 @@ This empowers developers to:
 * **Resilient:** Gracefully handles file access errors and allows for graceful interruption (`Ctrl+C`) with an option to save a partial report.
 
 ---
-
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-* Python 3.6+
+- Python 3.6+
 
 ### Installation
 
-1. **Clone the repository:**
+Install via PyPI:
 
-   ```sh
-   git clone [https://github.com/your-username/baseline-checker.git](https://github.com/your-username/baseline-checker.git)
-   cd baseline-checker
-   ```
-2. **Install the dependencies:**
-   It's recommended to use a virtual environment.
+```bash
+pip install baseline-checker
+```
 
-   ```sh
-   python -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-   pip install -r requirements.txt
-   ```
+Or clone the repository:
+
+```bash
+git clone https://github.com/Veeresh-Hanni/baseline-checker.git
+cd baseline-checker
+```
+
+Create a virtual environment and install dependencies:
+
+```bash
+python -m venv venv
+# Activate virtual environment
+# On Linux/Mac:
+source venv/bin/activate
+# On Windows:
+venv\Scripts\activate
+
+pip install -r requirements.txt
+```
+
+---
 
 ### Usage
 
-Run the scanner from the command line, providing the path to the project you want to analyze. You can also specify which reports you want to generate.
+Run the scanner from the command line, providing the path to your project:
 
-**Basic Scan:**
-
-```sh
-python baseline_checker.py /path/to/your/project
+```bash
+baseline-checker /path/to/your/project
 ```
 
-**Generate Specific Reports:**
-Use flags to generate reports. The reports will be saved in the root of the `baseline-checker` directory.
+#### Generate Specific Reports
 
-```sh
-# Generate a JSON report
-python baseline_checker.py /path/to/your/project --json
+- **JSON report**  
+```bash
+baseline-checker /path/to/your/project --json
+```
 
-# Generate a CSV report
-python baseline_checker.py /path/to/your/project --csv
+- **CSV report**  
+```bash
+baseline-checker /path/to/your/project --csv
+```
 
-# Generate a Word (DOCX) report
-python baseline_checker.py /path/to/your/project --docx
+- **Word (DOCX) report**  
+```bash
+baseline-checker /path/to/your/project --docx
+```
 
-# Generate a PDF report
-python baseline_checker.py /path/to/your/project --pdf
+- **PDF report**  
+```bash
+baseline-checker /path/to/your/project --pdf
+```
 
-# Generate all reports at once
-python baseline_checker.py /path/to/your/project --json --csv --docx --pdf
+- **All reports at once**  
+```bash
+baseline-checker /path/to/your/project --json --csv --docx --pdf
 ```
 
 ---
 
 ## 🛠️ Built With
 
-* **Python:** The core language for the scanning engine and reporting tools.
-* **Pandas:** Used for data manipulation and generating the CSV report.
-* **python-docx:** To create the professional Word document report.
-* **ReportLab:** For generating the clean and portable PDF report.
-* **Rich:** To provide beautiful and informative console output.
-* **tqdm:** Powers the user-friendly progress bars during the scan.
+- **Python** – Core scanning engine and reporting tools
+- **Pandas** – Data manipulation and CSV report generation
+- **python-docx** – Word document reports
+- **ReportLab** – PDF generation
+- **Rich** – Beautiful console output
+- **tqdm** – Progress bars
 
 ---
+
+## 🤝 Contributing
+
+Contributions are welcome! Open an issue or submit a pull request.
+

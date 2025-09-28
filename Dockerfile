@@ -14,8 +14,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 5000
 
 # Define environment variables for Celery to find Redis
-ENV CELERY_BROKER_URL=redis://redis:6379/0
-ENV CELERY_RESULT_BACKEND=redis://redis:6379/0
+ENV CELERY_BROKER_URL=redis://127.0.0.1:6379/0
+ENV CELERY_RESULT_BACKEND=redis://127.0.0.1:6379/0
 
 # The command to run the Flask application using Gunicorn (a production server)
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "web_app.app:app"]

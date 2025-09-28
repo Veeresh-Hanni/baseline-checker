@@ -8,3 +8,6 @@ reportlab
 python-docx
 gunicorn
 pandas
+colorama
+fpdf
+Werkzeug
