@@ -33,6 +33,7 @@ This empowers developers to:
 * **Resilient:** Gracefully handles file access errors and allows for graceful interruption (`Ctrl+C`) with an option to save a partial report.
 
 ---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -79,27 +80,32 @@ baseline-checker /path/to/your/project
 
 #### Generate Specific Reports
 
-- **JSON report**  
+- **JSON report**
+
 ```bash
 baseline-checker /path/to/your/project --json
 ```
 
-- **CSV report**  
+- **CSV report**
+
 ```bash
 baseline-checker /path/to/your/project --csv
 ```
 
-- **Word (DOCX) report**  
+- **Word (DOCX) report**
+
 ```bash
 baseline-checker /path/to/your/project --docx
 ```
 
-- **PDF report**  
+- **PDF report**
+
 ```bash
 baseline-checker /path/to/your/project --pdf
 ```
 
-- **All reports at once**  
+- **All reports at once**
+
 ```bash
 baseline-checker /path/to/your/project --json --csv --docx --pdf
 ```
@@ -111,7 +117,7 @@ baseline-checker /path/to/your/project --json --csv --docx --pdf
 - **Python** – Core scanning engine and reporting tools
 - **Pandas** – Data manipulation and CSV report generation
 - **python-docx** – Word document reports
-- **ReportLab** – PDF generation
+- **ReportLab** & **FPDF**– PDF generation
 - **Rich** – Beautiful console output
 - **tqdm** – Progress bars
 
@@ -120,4 +126,3 @@ baseline-checker /path/to/your/project --json --csv --docx --pdf
 ## 🤝 Contributing
 
 Contributions are welcome! Open an issue or submit a pull request.
-

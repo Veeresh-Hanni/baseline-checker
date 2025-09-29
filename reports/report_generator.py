@@ -61,8 +61,8 @@ def save_word(data, filename="baseline_report.docx"):
             r.font.size = Pt(11)
         
         doc.add_paragraph("")  # Empty line for spacing
-    
     doc.save(filename)
+    print(f"Word file saved as {filename}")
 
 
 # ---------------- PDF ----------------

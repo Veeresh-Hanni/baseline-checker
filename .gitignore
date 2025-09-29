@@ -18,5 +18,8 @@ venv/
 web_app/uploads/
 tests/
 # Ignore Docker and Git specific files
-.gitignore
 .dockerignore
+
+dist/
+build/
+*.spec
