@@ -119,6 +119,7 @@ baseline-checker /path/to/your/project --json --csv --docx --pdf
 - **python-docx** – Word document reports
 - **ReportLab** & **FPDF**– PDF generation
 - **Rich** – Beautiful console output
+- **Colorama** - Colorfull console
 - **tqdm** – Progress bars
 
 ---
