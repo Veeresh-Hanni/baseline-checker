@@ -23,5 +23,5 @@ tests/
 dist/
 build/
 *.spec
-Dockerfile/
+Dockerfile
 *.yml
