@@ -2,10 +2,10 @@
 from pathlib import Path
 
 from colorama import Fore, Style
-from scanner.file_scanner import scan_folder
-from scanner.filters import detect_frontend_framework
-from scanner.utils import *
-from reports.report_generator import *
+from .scanner.file_scanner import scan_folder
+from .scanner.filters import detect_frontend_framework
+from .scanner.utils import *
+from .reports.report_generator import *
 
 def main(scan_path, features_file=None, generate_json=True, generate_csv=True, generate_word=True, generate_pdf=True, generate_html=True):
     features_dict = load_features(features_file)
