@@ -23,3 +23,5 @@ tests/
 dist/
 build/
 *.spec
+Dockerfile/
+*.yml
