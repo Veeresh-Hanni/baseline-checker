@@ -23,4 +23,3 @@ tests/
 dist/
 build/
 *.spec
-/web_app
