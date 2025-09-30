@@ -1,12 +1,8 @@
 python-dotenv
-flask
-celery[redis]
-redis
 tqdm
 rich
 reportlab
 python-docx
-gunicorn
 pandas
 colorama
 fpdf
