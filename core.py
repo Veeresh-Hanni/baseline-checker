@@ -177,8 +177,8 @@ def main(scan_path, features_file=None, generate_json=True, generate_csv=True, g
                 "folders": folder_reports
             }
             save_json(report_data)
-            save_pdf(report_data)
-            print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} Partial report saved.")
+            save_word(report_data)
+            print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} Partial report saved as baseline_report.json and baseline_report.docx.")
 
     report_data = {
         "total_files_scanned": total_files_scanned,
@@ -187,15 +187,20 @@ def main(scan_path, features_file=None, generate_json=True, generate_csv=True, g
         "folders": folder_reports
     }
 
-    if generate_json: save_json(report_data)
-    if generate_csv: save_csv(report_data)
-    if generate_word: save_word(report_data)
-    if generate_pdf: save_pdf(report_data)
-    if generate_html: save_html(report_data)
 
     print(f"\n{Fore.GREEN}[INFO]{Style.RESET_ALL} Scan completed! Total files scanned: {Fore.YELLOW}{total_files_scanned}")
     print(f"{Fore.GREEN}✅ Baseline features used: {len(cumulative_baseline)}{Style.RESET_ALL}")
-    print(f"{Fore.RED}❌ Non-Baseline features used: {len(cumulative_non_baseline)}{Style.RESET_ALL}")
+    print(f"{Fore.RED}❌ Non-Baseline features used: {len(cumulative_non_baseline)}{Style.RESET_ALL}\n")
+
+    if generate_json: save_json(report_data)
+
+    if generate_csv: save_csv(report_data)
+
+    if generate_word: save_word(report_data)
+
+    if generate_pdf: save_pdf(report_data)
+
+    if generate_html: save_html(report_data)
 
 
 # ---------------- Entry Point ----------------

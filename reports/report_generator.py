@@ -5,10 +5,12 @@ from docx import Document
 from docx.shared import RGBColor, Pt
 from jinja2 import Template
 from fpdf import FPDF
+from colorama import Fore, Style
 # ---------------- JSON ----------------
 def save_json(data, filename="baseline_report.json"):
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4)
+    print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} scanned report saved as ({filename})")
 
 # ---------------- CSV ----------------
 def save_csv(data, filename="baseline_report.csv"):
@@ -22,6 +24,7 @@ def save_csv(data, filename="baseline_report.csv"):
                 "; ".join(folder["baseline_features"]),
                 "; ".join(folder["non_baseline_features"])
             ])
+    print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} scanned report saved as ({filename})")
 
 # ---------------- DOCX ----------------
 
@@ -62,7 +65,7 @@ def save_word(data, filename="baseline_report.docx"):
         
         doc.add_paragraph("")  # Empty line for spacing
     doc.save(filename)
-    print(f"Word file saved as {filename}")
+    print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} scanned report saved as ({filename})")
 
 
 # ---------------- PDF ----------------
@@ -111,6 +114,7 @@ def save_pdf(data, filename="baseline_report.pdf"):
         pdf.set_text_color(0, 0, 0)  # Reset color for next folder
     
     pdf.output(filename)
+    print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} scanned report saved as ({filename})")
 
 
 # ---------------- HTML ----------------
@@ -154,3 +158,4 @@ def save_html(data, filename="baseline_report.html"):
         folders=data.get("folders", [])
     )
     Path(filename).write_text(html_content, encoding="utf-8")
+    print(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} scanned report saved as ({filename})")
