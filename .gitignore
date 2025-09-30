@@ -25,3 +25,4 @@ build/
 *.spec
 Dockerfile
 *.yml
+logs/
