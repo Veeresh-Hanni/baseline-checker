@@ -47,6 +47,10 @@ Install via PyPI:
 ```bash
 pip install baseline-checker
 ```
+Install via npm :
+```bash
+npm i -g baseline-checker
+```
 
 Or clone the repository:
 
