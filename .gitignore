@@ -1,28 +1,53 @@
-__pycache__/
-
-node_modules/
-*.log
-
-# Ignore Python cache files
+# -------------------------------
+# Python cache and compiled files
+# -------------------------------
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
-uploads/
-
-# Ignore virtual environment
+# -------------------------------
+# Virtual environments
+# -------------------------------
 venv/
 .venv/
 .env
-# Ignore local log files and user uploads
-*.log
-web_app/
-tests/
-# Ignore Docker and Git specific files
-.dockerignore
 
+# -------------------------------
+# Logs and uploads
+# -------------------------------
+*.log
+logs/
+uploads/
+
+# -------------------------------
+# Node / frontend
+# -------------------------------
+node_modules/
+
+# -------------------------------
+# Build and distribution
+# -------------------------------
 dist/
 build/
+*.egg-info/
 *.spec
+
+# -------------------------------
+# Docker files
+# -------------------------------
 Dockerfile
-*.yml
-logs/
+docker-compose.yml
+.dockerignore
+
+# -------------------------------
+# Miscellaneous
+# -------------------------------
+*.swp
+*.swo
+*.DS_Store
+
+# -------------------------------
+# Keep all Python source files
+# -------------------------------
+# (Do NOT ignore *.py files—they are tracked)
